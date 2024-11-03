@@ -20,8 +20,7 @@
 #define NAV  1
 #define SYM  2
 #define ADJ  3
-#define TVP1 4
-#define TVP2 5
+#define FN 4
 
 &mt {
   quick-tap-ms = <100>;
@@ -34,14 +33,14 @@
      combos {
             compatible = "zmk,combos";
             combo_esc {
-                timeout-ms = <50>;
-                key-positions = <0 1>;
+                timeout-ms = <5>;
+                key-positions = <1 2>;
                 bindings = <&kp ESC>;
             };
-            combo_tvp {
-                timeout-ms = <100>;
-                key-positions = <11 12 13>;
-                bindings = <&tog TVP1>;
+            combo_tab{
+                timeout-ms = <5>;
+                key-positions = <12 13>;
+                bindings = <&kp TAB>;
             };
     };
 
@@ -59,33 +58,68 @@
         };
     };
 
-        keymap {
-                compatible = "zmk,keymap";
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-                base_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "BASE"                              ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+    keymap {
+        compatible = "zmk,keymap";
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     Q     ┃     W     ┃     F     ┃     P     ┃     G     ┃   ┃     J     ┃     L     ┃     U     ┃     Y     ┃     ;     ┃
+//             ┃     0     ┃     1     ┃     2     ┃     3     ┃     4     ┃   ┃     5     ┃     6     ┃     7     ┃     8     ┃     9     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     A     ┃     R     ┃     S     ┃     T     ┃     D     ┃   ┃     H     ┃     N     ┃     E     ┃     I     ┃     O     ┃
+//             ┃     10    ┃     11    ┃     12    ┃     13    ┃     14    ┃   ┃     15    ┃     16    ┃     17    ┃     18    ┃     19    ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃     Q     ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     K     ┃     M     ┃     ,     ┃     .     ┃     /     ┃     \     ┃
+// ┃     20    ┃     21    ┃     22    ┃     23    ┃     24    ┃     25    ┃   ┃     26    ┃     27    ┃     28    ┃     29    ┃     30    ┃     31    ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃    DEL    ┃    TAB    ┃    SPC    ┃   ┃   ENTER   ┃           ┃   BSPC    ┃
+//                                     ┃     32    ┃     33    ┃     34    ┃   ┃     35    ┃     36    ┃     37    ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
+
+        base_layer {
+            label= "BASE";
+            bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
                 &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI
     &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp BSLH
-                                        &kp DEL   &lt NAV TAB   &kp SPACE       &kp RET   &lt SYM ESC   &kp BSPC
-                        >;
-                };
-
-
+                                        &kp LALT    &mt LGUI SPACE  &kp LCTRL     &kp RET     &lt SYM SPACE &kp RSHFT
+            >;
         };
+
+//      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        symbol_layer {
+            label= "SYM";
+            bindings = <
+// ╷            ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+                &trans      &trans      &kp LPAR    &kp RPAR    &trans          &trans      &kp PG_UP   &kp UP      &kp PG_DN   &trans
+                &trans      &trans      &kp LBKT    &kp RBKT    &trans          &kp H       &kp LEFT    &kp DOWN    &kp RIGHT   &kp DEL
+    &kp LSHFT   &trans      &trans      &kp LBRC    &kp RBKT    &trans          &kp N       &trans      &kp COMMA   &kp DOT     &trans      &kp BSLH
+                                        &trans      &trans      &trans          &trans      &trans      &trans
+            >;
+        };
+
+//      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        navigation_layer {
+            label= "NAV";
+            bindings = <
+// ╷            ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+                &trans      &trans      &kp LPAR    &kp RPAR    &trans          &trans      &kp PG_UP   &kp UP      &kp PG_DN   &trans
+                &kp LSHFT   &trans      &kp LBKT    &kp RBKT    &trans          &kp H       &kp LEFT    &kp DOWN    &kp RIGHT   &kp DEL
+    &kp LSHFT   &trans      &trans      &kp LBRC    &kp RBKT    &trans          &kp N       &trans      &kp COMMA   &kp DOT     &trans      &kp BSLH
+                                        &trans      &trans      &trans          &trans      &trans      &trans
+            >;
+        };
+
+        function_layer {
+            label= "FN";
+            bindings = <
+// ╷            ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+                &trans      &trans      &trans      &kp C_VOL_UP &kp C_MUTE     &trans      &kp N7      &kp N8      &kp N9      &trans
+                &kp LSHFT   &trans      &trans      &kp C_VOL_DN &trans         &trans      &kp N4      &kp N5      &kp N6      &trans
+    &kp LSHFT   &trans      &trans      &trans      &trans      &trans          &trans      &kp N1      &kp N2      &kp N3      &trans      &trans
+                                        &trans      &trans      &trans          &trans      &kp N0      &kp DOT
+            >;
+        };
+
+
+    };
 };
